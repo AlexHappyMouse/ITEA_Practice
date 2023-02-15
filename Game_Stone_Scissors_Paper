@@ -1,0 +1,77 @@
+import random as ran
+import time
+from colorama import Fore, Style, init
+
+
+init(autoreset=True)
+my_keys = ["1", "2", "3", "4"]
+quit_values = ["1", "2"]
+objects = {"1": "Stone", "2": "Scissors", "3": "Paper"}
+print(Fore.YELLOW + Style.BRIGHT + "Welcome to the game \"Stone-Scissors-Paper\" v.1.1 ! ! !\n")
+name_answer = input(Fore.LIGHTGREEN_EX + Style.BRIGHT + "What's your name, Bro (Sis)? >>: ")
+print(Fore.LIGHTCYAN_EX + Style.BRIGHT + f"\nAlright, let's go!!! {name_answer}, you play vs. Mr. Comp and have to choose an option!")
+
+live = True
+while live:
+    user_answer = input(Fore.LIGHTBLUE_EX + Style.BRIGHT + """
+    Choose your option:
+
+    1 - Stone
+    2 - Scissors
+    3 - Paper
+    4 - Quit 
+
+>>: """)
+    print(" ")
+
+    if user_answer == "4":
+        print(Fore.RED + "This program will end its work in 3 seconds...")
+        time.sleep(3)
+        live = False
+    elif user_answer not in my_keys:
+        print(Fore.RED + Style.BRIGHT + "Sorry, but your option is not correct. Please, use the option list!")
+        continue
+    else:
+        comp_answer = ran.choice(["1", "2", "3"])
+        print(Fore.LIGHTRED_EX + Style.BRIGHT + f"{name_answer}, you have chosen option <{user_answer}> - '{objects[user_answer]}' || Mr. Comp has chosen"
+              f" an option <{comp_answer}> - '{objects[comp_answer]}'\n")
+        if user_answer == comp_answer:
+            print(Fore.RED + Style.BRIGHT + "This is a DRAW, nobody wins ! ! ! Play again to determine the winner!")
+            continue
+        elif user_answer == "1" and comp_answer == "2" or user_answer == "3" and comp_answer == "1" \
+                or user_answer == "2" and comp_answer == "3":
+            print(Fore.LIGHTRED_EX + Style.BRIGHT + f"{name_answer} WINS ! ! !\n")
+            quit_answer = input(Fore.LIGHTCYAN_EX + Style.BRIGHT + """
+    Would you like to play again?:
+
+    1 - Play again
+    2 - Quit 
+
+>>: """)
+            if quit_answer == "1":
+                continue
+            elif quit_answer not in quit_values:
+                print(Fore.RED + Style.BRIGHT + "Sorry, but your option is not correct. Please, use the option list!")
+                continue
+            else:
+                print(Fore.RED + Style.BRIGHT + "\nThis program will end its work in 3 seconds...")
+                time.sleep(3)
+                live = False
+        else:
+            print(Fore.RED + Style.BRIGHT + "MR. Comp WINS ! ! !\n")
+            quit_answer = input(Fore.LIGHTCYAN_EX + Style.BRIGHT + """
+    Would you like to play again?:
+
+    1 - Play again
+    2 - Quit 
+
+>>: """)
+            if quit_answer == "1":
+                continue
+            elif quit_answer not in quit_values:
+                print(Fore.RED + Style.BRIGHT + "Sorry, but your option is not correct. Please, use the option list!")
+                continue
+            else:
+                print(Fore.RED + Style.BRIGHT + "\nThis program will end its work in 3 seconds...")
+                time.sleep(3)
+                live = False
