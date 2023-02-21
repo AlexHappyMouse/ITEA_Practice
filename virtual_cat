@@ -1,0 +1,72 @@
+def simple_function(param1, param2):
+    return param1 + param2
+sum = simple_function(5, 5)
+print(sum)
+
+x = simple_function
+sum1 = x(3, 3)
+print(sum1)
+# ----------------------------------------------
+
+def sum_func(x, y):
+    return x + y
+
+
+def subtraction_func(x, y):
+    return x - y
+
+
+def tricky_func(x, y, func):
+    return func(x, y)
+
+
+sum_result = tricky_func(2, 3, sum_func)
+min_result = tricky_func(2, 3, subtraction_func)
+
+print(sum_result)  # 5
+print(min_result)  # -1
+
+#-----------------------------------------------
+def new_func(param1):
+    def second_func(param2):
+        return param1 + param2
+    return second_func
+
+result = new_func(5)
+result1 = result(7)
+
+#-----------------------------------------------
+
+def decorator(functia):
+    def end():
+        print("Before function")
+        result = functia(6, 3)
+        print("After function")
+        return result
+    return end
+
+@decorator
+def division(param1, param2):
+    return param1 / param2
+
+def sum(param1, param2):
+    return param1 + param2
+
+def subtraction(param1, param2):
+    return param1 - param2
+
+class Animal:
+    def __init__(self, name):
+        print("Name: ", name)
+class Dog(Animal):
+    def __init__(self, age, weight):
+        super().__init__("Bobik")
+        print("Age:", age) #problem: name changed to age
+Bobik = Dog("5")
+
+# class Cat, events
+# eat, property + 1
+
+
+
+
