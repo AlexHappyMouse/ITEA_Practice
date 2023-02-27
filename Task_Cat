@@ -29,6 +29,8 @@ Now I want to walk on : {self.walk_percent}%''')
         print(f'''Now I am hungry on    : {self.food_percent}%
 Now I want to walk on : {self.walk_percent}%''')
         print("------------------------------------------")
+        # print(self.food)
+        # print(self.walk)
 
     def walker(self):
         self.walk -= 1
@@ -41,10 +43,10 @@ Now I want to walk on : {self.walk_percent}%''')
 Now I want to walk on : {self.walk_percent}%''')
         print("------------------------------------------")
 
-    def walking_cat(self):
+    def full_cat(self):
         print(f"\nI am FULL and do not want to eat! LET US GO WALKING !!!\n")
 
-    def full_cat(self):
+    def hungry_cat(self):
         print(f"\nI am HUNGRY and want to eat! PLEASE, FEED ME !!!\n")
 
     def stop_feed(self):
@@ -56,6 +58,8 @@ Now I want to walk on : {self.walk_percent}%''')
         self.food = 0
         self.walk = 10
         print(f"\nLook, Bro (Sis), I AM REALLY FULL! PLEASE, STOP FEED ME AND >>> GO WALKING !!!\n")
+        # print(self.food)
+        # print(self.walk)
 
     def exit_game(self):
         print("\nYou will exit this game in 3 seconds...")
@@ -75,20 +79,29 @@ while True:
 
 >>: ''')
     if action == "1":
-        my_cat.feeder()
+        if my_cat.food == 11 and my_cat.walk == 9:
+            my_cat.feeder()
+            my_cat.stop_feed()
+        elif my_cat.food == 0 and my_cat.walk == 10:
+            my_cat.full_cat()
+        else:
+            my_cat.feeder()
+
     elif action == "2":
-        my_cat.walker()
+        if my_cat.food == 9 and my_cat.walk == 1:
+            my_cat.walker()
+            my_cat.stop_walk()
+        elif my_cat.food == 10 and my_cat.walk == 0:
+            my_cat.hungry_cat()
+        else:
+            my_cat.walker()
+
     elif action == "3":
         my_cat.exit_game()
     else:
-        print("\nYou have chosen a wrong option, try again!")
+        print("\nYou have chosen a wrong option, TRY AGAIN!")
         continue
 
-    if my_cat.food == 0:
-        my_cat.walking_cat()
-    elif my_cat.walk == 0:
-        my_cat.full_cat()
-    elif my_cat.food == -1:
-        my_cat.stop_walk()
-    elif my_cat.walk == -1:
-        my_cat.stop_feed()
+
+
+
