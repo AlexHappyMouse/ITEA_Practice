@@ -23,8 +23,8 @@ Now I want to walk on : {self.walk_percent}%''')
 
 
     def feeder(self):
-        self.walk += 1
         self.food -= 1
+        self.walk += 1
         self.food_percent = self.food * 10
         self.walk_percent = self.walk * 10
 
@@ -34,13 +34,18 @@ Now I want to walk on : {self.walk_percent}%''')
         print("------------------------------------------")
         print(self.food, "self.food")
         print(self.walk, "self.walk")
+
+
+    def feeder_minus10(self):
+        self.food -= 1
+        self.walk += 1
 
 
     def walker(self):
-        self.walk -= 1
         self.food += 1
-        self.walk_percent = self.walk * 10
+        self.walk -= 1
         self.food_percent = self.food * 10
+        self.walk_percent = self.walk * 10
 
         print("------------------------------------------")
         print(f'''Now I am hungry on    : {self.food_percent}%
@@ -48,6 +53,11 @@ Now I want to walk on : {self.walk_percent}%''')
         print("------------------------------------------")
         print(self.food, "self.food")
         print(self.walk, "self.walk")
+
+
+    def walker_minus10(self):
+        self.food += 1
+        self.walk -= 1
 
 
     def walking_cat(self):
@@ -66,13 +76,12 @@ Now I want to walk on : {self.walk_percent}%''')
         print(self.walk, "self.walk")
 
 
-
     def stop_walk(self):
         self.food = 0
         self.walk = 10
         print(f"\nLook, Bro (Sis), I AM REALLY FULL! PLEASE, STOP FEED ME AND >>> GO WALKING !!!\n")
-        print(self.walk, "self.walk")
         print(self.food, "self.food")
+        print(self.walk, "self.walk")
 
 
     def exit_game(self):
@@ -104,9 +113,12 @@ while True:
 
     if my_cat.food == 0:
         my_cat.walking_cat()
+
     elif my_cat.walk == 0:
         my_cat.full_cat()
+
     elif my_cat.food == -1:
         my_cat.stop_walk()
+
     elif my_cat.walk == -1:
         my_cat.stop_feed()
