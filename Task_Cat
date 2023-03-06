@@ -4,7 +4,6 @@ import time
 
 class Cat:
 
-
     def __init__(self, name: str, age: int, food: int, walk: int, food_percent=50, walk_percent=50):
         self.name = name
         self.age = age
@@ -13,7 +12,6 @@ class Cat:
         self.food_percent = food_percent
         self.walk_percent = walk_percent
 
-
     def greetings(self):
         print(f"Hey there! I am CAT, my name is {self.name} and I am {self.age} years old.\n")
         print("------------------------------------------")
@@ -21,25 +19,19 @@ class Cat:
 Now I want to walk on : {self.walk_percent}%''')
         print("------------------------------------------")
 
-
     def feeder(self):
         self.food -= 1
         self.walk += 1
         self.food_percent = self.food * 10
         self.walk_percent = self.walk * 10
 
+    def feeder_print(self):
         print("------------------------------------------")
         print(f'''Now I am hungry on    : {self.food_percent}%
 Now I want to walk on : {self.walk_percent}%''')
         print("------------------------------------------")
-        print(self.food, "self.food")
-        print(self.walk, "self.walk")
-
-
-    def feeder_minus10(self):
-        self.food -= 1
-        self.walk += 1
-
+        # print(self.food, "self.food")
+        # print(self.walk, "self.walk")
 
     def walker(self):
         self.food += 1
@@ -47,42 +39,33 @@ Now I want to walk on : {self.walk_percent}%''')
         self.food_percent = self.food * 10
         self.walk_percent = self.walk * 10
 
+    def walker_print(self):
         print("------------------------------------------")
         print(f'''Now I am hungry on    : {self.food_percent}%
 Now I want to walk on : {self.walk_percent}%''')
         print("------------------------------------------")
-        print(self.food, "self.food")
-        print(self.walk, "self.walk")
-
-
-    def walker_minus10(self):
-        self.food += 1
-        self.walk -= 1
-
+        # print(self.food, "self.food")
+        # print(self.walk, "self.walk")
 
     def walking_cat(self):
         print(f"\nI am FULL and do not want to eat! LET US GO WALKING !!!\n")
 
-
     def full_cat(self):
         print(f"\nI am HUNGRY and want to eat! PLEASE, FEED ME !!!\n")
-
 
     def stop_feed(self):
         self.walk = 0
         self.food = 10
         print(f"\nLook, Bro (Sis), I AM REALLY HUNGRY! PLEASE, STOP WALK ME AND >>> FEED ME !!!\n")
-        print(self.food, "self.food")
-        print(self.walk, "self.walk")
-
+        # print(self.food, "self.food")
+        # print(self.walk, "self.walk")
 
     def stop_walk(self):
         self.food = 0
         self.walk = 10
         print(f"\nLook, Bro (Sis), I AM REALLY FULL! PLEASE, STOP FEED ME AND >>> GO WALKING !!!\n")
-        print(self.food, "self.food")
-        print(self.walk, "self.walk")
-
+        # print(self.food, "self.food")
+        # print(self.walk, "self.walk")
 
     def exit_game(self):
         print("\nYou will exit this game in 3 seconds...")
@@ -101,12 +84,22 @@ while True:
     <3> Exit game
 
 >>: ''')
-    if action == "1":
+
+    if action == "1" and my_cat.food != 0:
         my_cat.feeder()
-    elif action == "2":
+        my_cat.feeder_print()
+    elif action == "1" and my_cat.food == 0:
+        my_cat.feeder()
+
+    elif action == "2" and my_cat.walk != 0:
         my_cat.walker()
+        my_cat.walker_print()
+    elif action == "2" and my_cat.walk == 0:
+        my_cat.walker()
+
     elif action == "3":
         my_cat.exit_game()
+
     else:
         print("\nYou have chosen a wrong option, try again!")
         continue
