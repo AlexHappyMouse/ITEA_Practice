@@ -29,8 +29,8 @@ Now I want to walk on : {self.walk_percent}%''')
         print(f'''Now I am hungry on    : {self.food_percent}%
 Now I want to walk on : {self.walk_percent}%''')
         print("------------------------------------------")
-        print(self.food, "self.food")
-        print(self.walk, "self.walk")
+        # print(self.food, "self.food")
+        # print(self.walk, "self.walk")
 
     def feeder_minus10(self):
         self.food -= 1
@@ -46,8 +46,8 @@ Now I want to walk on : {self.walk_percent}%''')
         print(f'''Now I am hungry on    : {self.food_percent}%
 Now I want to walk on : {self.walk_percent}%''')
         print("------------------------------------------")
-        print(self.food, "self.food")
-        print(self.walk, "self.walk")
+        # print(self.food, "self.food")
+        # print(self.walk, "self.walk")
 
     def walker_minus10(self):
         self.food += 1
@@ -63,15 +63,15 @@ Now I want to walk on : {self.walk_percent}%''')
         self.walk = 0
         self.food = 10
         print(f"\nLook, Bro (Sis), I AM REALLY HUNGRY! PLEASE, STOP WALK ME AND >>> FEED ME !!!\n")
-        print(self.food, "self.food")
-        print(self.walk, "self.walk")
+        # print(self.food, "self.food")
+        # print(self.walk, "self.walk")
 
     def stop_walk(self):
         self.food = 0
         self.walk = 10
         print(f"\nLook, Bro (Sis), I AM REALLY FULL! PLEASE, STOP FEED ME AND >>> GO WALKING !!!\n")
-        print(self.food, "self.food")
-        print(self.walk, "self.walk")
+        # print(self.food, "self.food")
+        # print(self.walk, "self.walk")
 
     def exit_game(self):
         print("\nYou will exit this game in 3 seconds...")
