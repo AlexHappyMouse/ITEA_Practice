@@ -1,0 +1,54 @@
+# Server part
+
+import socket
+
+
+# Creating socket
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+
+# Binding created socket with a port where it will accept messages
+
+sock.bind(('localhost', 55000))
+
+
+# Setting how many connections will socket accept
+
+sock.listen(10)
+
+
+# Starting server...
+
+print('Server is running, please, press ctrl+c to stop')
+
+# Running a loop that checks and accepts incoming connections
+
+while True:
+
+# Accepting incoming connections
+
+    conn, addr = sock.accept()
+
+# Info output about connected device address
+
+    print('A new incoming connection;'
+'connected:', addr)
+
+# Receiving data from a client, 1024 bites each part
+
+    data = conn.recv(1024)
+
+# Printing received data from client
+
+    print(str(data.decode()))
+
+# Sending a message to client in response
+
+    conn.send(data.upper('Your data has been received successfully !!!'.encode()))
+
+# Close connection
+
+conn.close()
+
+
