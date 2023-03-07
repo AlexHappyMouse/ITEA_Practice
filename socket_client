@@ -1,0 +1,27 @@
+# Client part
+
+import socket
+
+# Creating socket
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# Connecting to the server socket
+
+sock.connect(('localhost', 55000))
+
+# Sending a message to the server
+
+sock.send(bytes('Hello, world', encoding = 'UTF-8'))  
+
+# Reading a message in response from server
+
+data = sock.recv(1024)  
+
+# Close connection
+
+sock.close()  
+
+# Printing data
+
+print(data)
