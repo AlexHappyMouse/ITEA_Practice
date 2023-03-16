@@ -25,13 +25,16 @@ def rand():
 
 
 def after_win_exit():
-    after_win_answer = input(" Enter your command >>: ")
+    after_win_answer = input("Enter your command >>: ")
     if after_win_answer == "play":
         play()
     elif after_win_answer == "exit":
         print("\n This program will end its work in 3 seconds...")
         time.sleep(3)
         sys.exit()
+    else:
+        print(" \nSorry, but your option is not correct. Please, enter 'play' or 'exit'\n")
+
 
 
 def choice_exit():
@@ -64,6 +67,9 @@ def play():
     print(" Good luck!!!\n")
     while attempt < 5:
         guess = input(" Enter your answer >>: ")
+        if guess not in ['0','1','2','3','4','5','6','7','8','9','10']:
+            print("\n Sorry, but your option is not correct. Please, use the integer numbers from 0 to 10!\n")
+            continue
         guess = int(guess)
         print(" ")
         attempt = attempt + 1
@@ -81,8 +87,9 @@ def play():
             print(" CONGRATULATIONS!!! YOU WIN and get 1 US dollar!!!\n")
             print(''' Would you like to play this game again or you just want to exit an application?\n
             Please, enter:\n
-                 1) 'play' for play again
-                 2) 'exit' for further choice\n''')
+            1) 'play' for play again
+            2) 'exit' for further choice\n''')
+            break
         elif remain == 0:
             print(f" It's a pity, but you have no more attempts left, the number that was guessed is <{number}>")
             print(" YOU LOST and owed the game developer 5 US dollars!!!\n")
@@ -93,7 +100,7 @@ def play():
 
 
 while True:
-    command = input(''' Enter a command >>: ''')
+    command = input('''Enter a command >>: ''')
     print(" ")
     if command == "random":
         rand()
