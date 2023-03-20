@@ -24,11 +24,12 @@ def rand():
     print(f" Your new generated number is: {digit}\n")
 
 
-def after_win_exit():
-    after_win_answer = input("Enter your command >>: ")
-    if after_win_answer == "play":
+def after_win_lost_exit():
+    after_win_lost_answer = input("Enter your command >>: ")
+    if after_win_lost_answer == "play":
+        print(" ")
         play()
-    elif after_win_answer == "exit":
+    elif after_win_lost_answer == "exit":
         print("\n This program will end its work in 3 seconds...")
         time.sleep(3)
         sys.exit()
@@ -47,9 +48,12 @@ def choice_exit():
 
 def main_no_exit():
     print(" ")
-    print(" Proceed with a new command ")
-    print(" (see instructions at the top of the program)\n")
-
+    print("       Proceed with a new command:")
+    print('''
+    1) For run a randomizer please enter a command "random"
+    2) For run a game please enter a command "play"
+    3) For exit an application please enter a command "exit")
+         ''')
 
 def play():
     attempt = 1
@@ -72,9 +76,24 @@ def play():
             continue
         guess = int(guess)
         print(" ")
-        attempt = attempt + 1
         remain = remain - 1
-        if guess < number:
+        if guess != number and remain == 0:
+            print(f" It's a pity, but you have no more attempts left, the number that was guessed is <{number}>")
+            print(" YOU LOST and owed the game developer 5 US dollars!!!\n")
+            print(''' Would you like to play this game again or you just want to exit an application?\n
+            Please, enter:\n
+            1) 'play' for play again
+            2) 'exit' for further choice\n''')
+            break
+        elif guess == number:
+            print(f" Your answer is: <{guess}> and YOU GUESSED! This is correct answer!!!")
+            print(" CONGRATULATIONS!!! YOU WIN and get 1 US dollar!!!\n")
+            print(''' Would you like to play this game again or you just want to exit an application?\n
+            Please, enter:\n
+            1) 'play' for play again
+            2) 'exit' for exit choice\n''')
+            break
+        elif guess < number:
             print(f" Your answer is: <{guess}> and it's actually less than the number you have to guess.")
             print(f" You have ({remain}) attempts left.")
             print(" Try again. Good luck!!!\n")
@@ -82,22 +101,6 @@ def play():
             print(f" Your answer is: <{guess}> and it's actually more than the number you have to guess.")
             print(f" You have ({remain}) attempts left.")
             print(" Try again. Good luck!!!\n")
-        elif guess == number:
-            print(f" Your answer is: <{guess}> and YOU GUESSED! This is correct answer!!!")
-            print(" CONGRATULATIONS!!! YOU WIN and get 1 US dollar!!!\n")
-            print(''' Would you like to play this game again or you just want to exit an application?\n
-            Please, enter:\n
-            1) 'play' for play again
-            2) 'exit' for further choice\n''')
-            break
-        elif remain == 0:
-            print(f" It's a pity, but you have no more attempts left, the number that was guessed is <{number}>")
-            print(" YOU LOST and owed the game developer 5 US dollars!!!\n")
-            print(''' Would you like to play this game again or you just want to exit an application?
-            Please, enter:
-                 1) 'play' for play again
-                 2) 'exit' for further choice\n''')
-
 
 while True:
     command = input('''Enter a command >>: ''')
@@ -106,7 +109,7 @@ while True:
         rand()
     elif command == "play":
         play()
-        after_win_exit()
+        after_win_lost_exit()
     elif command == "exit":
         while True:
             choice_exit()
