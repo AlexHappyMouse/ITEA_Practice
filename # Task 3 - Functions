@@ -1,0 +1,41 @@
+from random import SystemRandom
+from string import punctuation,ascii_letters, digits
+import sys
+
+
+pass_string = ""
+symbols=ascii_letters+digits+punctuation
+
+while True:
+    try:
+        quantity = int(input('''\nHow many symbols will your password consist?\n
+>>: '''))
+    except ValueError:
+        print("\nNeither 'regen' nor 'exit' was specified, press 'Enter' to continue")
+        input()
+        continue
+    secure_random = SystemRandom()
+    password = "".join(secure_random.choice(symbols) for i in range(quantity))
+    print(f"\nYour new generated password is: {password}\n")
+    if len(password) >= 8:
+        print("Please be advised that your password is completely reliable\n"
+              "as it consists min 8 symbols.\n")
+    else:
+        print("Please be advised that your password is NOT reliable.\n"
+              "Please regenerate a new password in order to have a reliable one!\n"
+              "NOTE! The password must consist at least 8 symbols.\n")
+    pass_string = ""
+    ex_cont = input('''Do you want re-generate a password or quit?\n
+    1) Enter "regen" to re-generate
+    2) Enter "exit" to exit a program\n
+>>: ''')
+    if ex_cont == "regen":
+        continue
+    elif ex_cont == "exit":
+        print("\nProgram was finished by user, press 'Enter' to quit")
+        input()
+        sys.exit()
+    else:
+        print("\nNeither 'regen' nor 'exit' were specified, press 'Enter' to continue")
+        input()
+        continue
