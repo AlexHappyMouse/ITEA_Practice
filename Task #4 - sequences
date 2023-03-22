@@ -1,0 +1,43 @@
+
+# 1. Створіть список ваших улюблених музикантів
+mus_singers_list = ["linkin park", "scooter", "alice deejay", "bomfunk mc's"]
+
+# 2. Створіть список кортежів, де кожен кортеж містить довготу та
+# широту будь-якого місця, в якому ви жили, або яке відвідували
+
+coordinates_list_tuple = [(50.517305756140814, 30.498977050228028), (50.49508882969512,  30.560181211157055),
+               (50.44500440611224, 30.626950156538978), (50.34535762011973, 30.54493725655736)]
+
+# 3. Створіть словник, що містить будь-які дані про вас, зростання, улюблений колір, актор і т.д.
+
+me_dict = {"name": "Alex", "age": 37, "color": "blue", "hobby": "information technologies"}
+
+# 4. Напишіть програму, яка запитує у користувача його
+# вага, колір, актора, яка повертатиме результат зі словника створеного в попередньому завданні
+
+def get_key(me_dict, value):
+    for k, v in me_dict.items():
+        if v == value:
+            return k
+
+while True:
+    answer = input('''Which characteristic do you want to know???
+Please, type "exit" for exit an application
+    >>: ''')
+    if answer == "name":
+        print("\nMy name is:", me_dict["name"], "\n")
+    elif answer == "age":
+        print("\nMy age is:", me_dict["age"], "\n")
+    elif answer == "color":
+        print("\nMy color is:", me_dict["color"], "\n")
+    elif answer == "hobby":
+        print("\nMy hobby is:", me_dict["hobby"], "\n")
+    elif answer == "exit":
+        break
+    else:
+        print("\nPlease, enter only this commands:", get_key(me_dict, "Alex"), "|" ,
+              get_key(me_dict, 37), "|" , get_key(me_dict, "blue"), "|" ,
+              get_key(me_dict, "information technologies"), "\n")
+        
+# 5. Створіть словник, що пов'язує ваших улюблених музикантів, зі списком ваших улюблених пісень, написаних ними
+# 6. Нехай програма також запитує місце, і якщо воно є у списку з кортежами, воно видає координати, якщо ні, пише що такого місця не існує
