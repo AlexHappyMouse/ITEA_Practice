@@ -1,16 +1,22 @@
-
 # 1. Створіть список ваших улюблених музикантів
-mus_singers_list = ["linkin park", "scooter", "alice deejay", "bomfunk mc's"]
+mus_singers_list = ["Linkin park", "Scooter", "Alice deejay", "Bomfunk MC's"]
 
 # 2. Створіть список кортежів, де кожен кортеж містить довготу та
 # широту будь-якого місця, в якому ви жили, або яке відвідували
 
-coordinates_list_tuple = [(50.517305756140814, 30.498977050228028), (50.49508882969512,  30.560181211157055),
-               (50.44500440611224, 30.626950156538978), (50.34535762011973, 30.54493725655736)]
+coordinates_list_tuple = [(50.517305756140814, 30.498977050228028), (50.49508882969512, 30.560181211157055),
+                          (50.44500440611224, 30.626950156538978), (50.34535762011973, 30.54493725655736)]
+
+Shuliavska = coordinates_list_tuple[0]
+CityCentre = coordinates_list_tuple[1]
+Darnitsa = coordinates_list_tuple[2]
+Lisova = coordinates_list_tuple[3]
+
 
 # 3. Створіть словник, що містить будь-які дані про вас, зростання, улюблений колір, актор і т.д.
 
 me_dict = {"name": "Alex", "age": 37, "color": "blue", "hobby": "information technologies"}
+
 
 # 4. Напишіть програму, яка запитує у користувача його
 # вага, колір, актора, яка повертатиме результат зі словника створеного в попередньому завданні
@@ -20,8 +26,9 @@ def get_key(me_dict, value):
         if v == value:
             return k
 
+
 while True:
-    answer = input('''Which characteristic do you want to know???
+    answer = input('''Which characteristic do you want to know (name, age, color, hobby)???
 Please, type "exit" for exit an application
     >>: ''')
     if answer == "name":
@@ -35,9 +42,57 @@ Please, type "exit" for exit an application
     elif answer == "exit":
         break
     else:
-        print("\nPlease, enter only this commands:", get_key(me_dict, "Alex"), "|" ,
-              get_key(me_dict, 37), "|" , get_key(me_dict, "blue"), "|" ,
+        print("\nPlease, enter only this commands:", get_key(me_dict, "Alex"), "|",
+              get_key(me_dict, 37), "|", get_key(me_dict, "blue"), "|",
               get_key(me_dict, "information technologies"), "\n")
-        
+
 # 5. Створіть словник, що пов'язує ваших улюблених музикантів, зі списком ваших улюблених пісень, написаних ними
+
+fav_songs = {mus_singers_list[0]: ["Numb", "Faint", "In pieces", "New divide"],
+             mus_singers_list[1]: ["Move your ass", "How much is the fish", "FCK 2020", "Ti sento"],
+             mus_singers_list[2]: ["Better of alone", "Lonely one", "Will I ever", "Back in my life"],
+             mus_singers_list[3]: ["Freestyler", "Turn it up", "Uprocking beats", "Super electic"]
+             }
+
 # 6. Нехай програма також запитує місце, і якщо воно є у списку з кортежами, воно видає координати, якщо ні, пише що такого місця не існує
+
+while True:
+    answer = input('''Which characteristic do you want to know (name, age, color, hobby, place)???
+Please, type "exit" for exit an application
+    >>: ''')
+    if answer == "name":
+        print("\nMy name is:", me_dict["name"], "\n")
+    elif answer == "age":
+        print("\nMy age is:", me_dict["age"], "\n")
+    elif answer == "color":
+        print("\nMy color is:", me_dict["color"], "\n")
+    elif answer == "hobby":
+        print("\nMy hobby is:", me_dict["hobby"], "\n")
+    elif answer == "place":
+        answer = input('''\nEnter a place to get coordinates (use only these places):
+        
+        1. Shuliavska
+        2. CityCentre
+        3. Darnitsa
+        4. Lisova
+        
+    >>: ''')
+
+        if answer == "Shuliavska":
+            print(f"\nCoordinates for place 'Shuliavska': ", Shuliavska, "\n")
+        elif answer == "CityCentre":
+            print(f"\nCoordinates for place 'CityCentre': ", Shuliavska, "\n")
+        elif answer == "Darnitsa":
+            print(f"\nCoordinates for place 'Darnitsa': ", Shuliavska, "\n")
+        elif answer == "Lisova":
+            print(f"\nCoordinates for place 'Lisova': ", Shuliavska, "\n")
+        elif answer == "exit":
+            break
+        else:
+            print(f"\nNo place found with the name '{answer}'. Try again.\n")
+    elif answer == "exit":
+        break
+    else:
+        print("\nPlease, enter only this commands:", get_key(me_dict, "Alex"), "|",
+              get_key(me_dict, 37), "|", get_key(me_dict, "blue"), "|",
+              get_key(me_dict, "information technologies"), "\n")
