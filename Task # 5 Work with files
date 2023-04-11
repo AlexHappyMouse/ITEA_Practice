@@ -1,0 +1,38 @@
+
+change = True
+contact_book = {}
+
+def add(contact):
+    spisok = contact.split(" ")
+    contact_book[spisok[1].capitalize()] = spisok[2]
+    print("Your contact was successfully added")
+    print("Now your contact book looks like:", contact_book, "\n")
+
+def change(number):
+    array = number.split(" ")
+    contact_book[array[1].capitalize()] = array[2]
+    print(f"The number of contact {array[1].capitalize()} was successfully changed into {array[2]}")
+    print("Now your contact book looks like:", contact_book, "\n")
+
+
+def phone(name):
+    array = name.split(" ")
+    print(f"The number of contact {array[1].capitalize()} is: {contact_book[array[1]].capitalize()}")
+
+def show_all():
+    print("Your contact book looks like:", contact_book, "\n")
+
+while change:
+    command = input("Enter a command: ").lower()
+    if command == "exit" or command == "good bye" or command == "close":
+        change = False
+    elif command == "hello":
+        print("How can I help you?\n")
+    elif command.startswith("add "):
+        add(command)
+    elif command.startswith("change "):
+        change(command)
+    elif command.startswith("phone "):
+        phone(command)
+    elif command == "show all":
+        show_all()
