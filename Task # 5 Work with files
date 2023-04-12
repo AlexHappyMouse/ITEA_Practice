@@ -1,4 +1,3 @@
-
 change = True
 contact_book = {}
 
@@ -17,7 +16,10 @@ def change(number):
 
 def phone(name):
     array = name.split(" ")
-    print(f"The number of contact {array[1].capitalize()} is: {contact_book[array[1]].capitalize()}")
+    array[1].capitalize()
+    print(array)
+    print(f"The number of contact {array[1]} is: ")
+
 
 def show_all():
     print("Your contact book looks like:", contact_book, "\n")
